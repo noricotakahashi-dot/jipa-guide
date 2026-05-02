@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JIPA 登録・写真提出ガイド</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #1a8a85;
+    --teal-light: #e8f5f5;
+    --teal-mid: #5dbdb9;
+    --gold: #c9912a;
+    --gold-light: #fdf4e3;
+    --bronze: #b07d3a;
+    --bronze-light: #fdf0e0;
+    --dark: #1a2a2a;
+    --mid: #4a6060;
+    --light: #f0f7f7;
+    --white: #ffffff;
+    --border: #c8e0df;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: #f4f9f9;
+    color: var(--dark);
+    line-height: 1.7;
+  }
+
+  /* HEADER */
+  .hero {
+    background: linear-gradient(135deg, #0d5c58 0%, #1a8a85 50%, #5dbdb9 100%);
+    color: white;
+    padding: 48px 40px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -40px;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+  }
+  .hero p {
+    font-size: 14px;
+    opacity: 0.85;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .hero-logo {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: white;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 16px;
+    font-size: 22px;
+  }
+
+  /* MAIN */
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 32px 20px 60px;
+  }
+
+  /* SECTION TITLE */
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 40px 0 20px;
+  }
+  .section-title-icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .section-title-icon.teal { background: var(--teal); }
+  .section-title-icon.gold { background: var(--gold); }
+  .section-title h2 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--dark);
+  }
+  .section-title p {
+    font-size: 12px;
+    color: var(--mid);
+    margin-top: 2px;
+  }
+
+  /* STEP CARD */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+  }
+  .steps::before {
+    content: '';
+    position: absolute;
+    left: 23px;
+    top: 28px;
+    bottom: 28px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--teal-mid), var(--border));
+    z-index: 0;
+  }
+  .steps.gold-steps::before {
+    background: linear-gradient(to bottom, var(--gold), #f0d9b0);
+  }
+
+  .step {
+    display: flex;
+    gap: 16px;
+    padding-bottom: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .step:last-child { padding-bottom: 0; }
+
+  .step-num {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--teal);
+    color: white;
+    font-weight: 900;
+    font-size: 16px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(26,138,133,0.3);
+  }
+  .step-num.gold-num {
+    background: var(--gold);
+    box-shadow: 0 2px 8px rgba(201,145,42,0.35);
+  }
+
+  .step-card {
+    flex: 1;
+    background: white;
+    border-radius: 14px;
+    padding: 18px 20px;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    margin-bottom: 12px;
+  }
+  .step-card h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--dark);
+  }
+  .step-card p {
+    font-size: 13px;
+    color: var(--mid);
+    line-height: 1.7;
+  }
+  .step-card .tag {
+    display: inline-block;
+    background: var(--teal-light);
+    color: var(--teal);
+    border-radius: 6px;
+    padding: 2px 9px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .step-card .tag.gold-tag {
+    background: var(--gold-light);
+    color: var(--gold);
+  }
+
+  /* INFO BOX */
+  .info-box {
+    background: var(--teal-light);
+    border-left: 4px solid var(--teal);
+    border-radius: 0 10px 10px 0;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-size: 13px;
+    color: var(--mid);
+  }
+  .info-box strong { color: var(--teal); }
+
+  .gold-box {
+    background: var(--gold-light);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-size: 13px;
+    color: #7a5a20;
+  }
+  .gold-box strong { color: var(--gold); }
+
+  /* PHOTO GRID */
+  .photo-grid {
+    background: white;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    padding: 18px 20px;
+    margin: 12px 0;
+  }
+  .photo-grid h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 12px;
+  }
+  .photo-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .photo-slot {
+    background: var(--teal-light);
+    border: 2px solid var(--teal-mid);
+    border-radius: 8px;
+    padding: 10px 6px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--teal);
+    aspect-ratio: 4/3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+  }
+  .photo-slot.center { grid-column: 2; }
+  .photo-slot .emoji { font-size: 18px; }
+
+  /* QR / LINK BOX */
+  .link-box {
+    background: linear-gradient(135deg, #0d5c58, #1a8a85);
+    border-radius: 14px;
+    padding: 20px 24px;
+    color: white;
+    text-align: center;
+    margin: 24px 0;
+  }
+  .link-box h4 {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    opacity: 0.9;
+  }
+  .link-box a {
+    color: #b8f0ee;
+    font-size: 12px;
+    word-break: break-all;
+    text-decoration: none;
+  }
+
+  /* DIVIDER */
+  .divider {
+    border: none;
+    border-top: 2px dashed var(--border);
+    margin: 36px 0;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    font-size: 11px;
+    color: #aaa;
+    padding: 20px;
+  }
+
+  @media print {
+    body { background: white; }
+    .container { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-logo">📷</div>
+  <div class="hero-badge">JIPA 公式ガイド</div>
+  <h1>日本口腔内写真協会<br>登録・写真提出の手順</h1>
+  <p>LINE友だち追加からゴールド検定写真提出まで、ステップごとにわかりやすくご案内します。</p>
+</div>
+
+<div class="container">
+
+  <!-- PART 1: LINE登録 -->
+  <div class="section-title">
+    <div class="section-title-icon teal">💬</div>
+    <div>
+      <h2>PART 1：LINE友だち追加 &amp; 会員登録</h2>
+      <p>まず公式LINEを友だち追加し、ブロンズ検定を経て会員登録を行います</p>
+    </div>
+  </div>
+
+  <div class="steps">
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-card">
+        <div class="tag">友だち追加</div>
+        <h3>JIPAの公式LINEを友だち追加する</h3>
+        <p>【公式】JIPA（日本口腔内写真協会）のLINEアカウントを検索し、友だち追加します。追加するとウェルカムメッセージが届きます。</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-card">
+        <div class="tag">ブロンズ検定</div>
+        <h3>無料ブロンズ検定に挑戦する</h3>
+        <p>メニューの「<strong>無料ブロンズに挑戦</strong>」をタップ。全10問・Yes/No形式で、5分ほどで終わります。<br><strong>8問以上 Yes で合格です。</strong></p>
+        <div style="margin-top:10px; background:#f4f9f9; border-radius:8px; padding:10px 14px; font-size:12px; color:#4a6060;">
+          ✅ 口腔内写真を週3回以上撮影しているか<br>
+          ✅ 撮影機器・ミラーの知識があるか<br>
+          ✅ 写真活用の意識・実践があるか　など
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-card">
+        <div class="tag">合格 🥉</div>
+        <h3>ブロンズ合格後「会員登録に進む」をタップ</h3>
+        <p>10問中8問以上正解で「BRONZE 合格」が表示されます。「会員登録に進む」ボタンをタップしてください。</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-card">
+        <div class="tag">情報入力</div>
+        <h3>お名前・メール・職種を入力する</h3>
+        <p>LINEのチャット画面で以下の情報を順番に入力します。</p>
+        <div style="margin-top:10px; font-size:12px;">
+          <div style="display:flex; gap:8px; margin-bottom:6px;"><span style="background:#e8f5f5;border-radius:5px;padding:2px 8px;font-weight:700;color:#1a8a85;min-width:60px;text-align:center;">①</span><span>お名前（例：山田太郎）</span></div>
+          <div style="display:flex; gap:8px; margin-bottom:6px;"><span style="background:#e8f5f5;border-radius:5px;padding:2px 8px;font-weight:700;color:#1a8a85;min-width:60px;text-align:center;">②</span><span>メールアドレス</span></div>
+          <div style="display:flex; gap:8px;"><span style="background:#e8f5f5;border-radius:5px;padding:2px 8px;font-weight:700;color:#1a8a85;min-width:60px;text-align:center;">③</span><span>ご職種（歯科医師・歯科衛生士・歯科技工士・歯科助手など）</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-card">
+        <div class="tag">登録完了 🎉</div>
+        <h3>内容確認後「登録する」をタップ → 会員番号が発行される</h3>
+        <p>登録内容の確認画面が表示されます。内容を確認し「登録する」をタップすると、<strong>JIPA-XXXXX</strong> 形式の会員番号が発行されます。</p>
+        <p style="margin-top:8px; font-size:12px; color:#888;">※ 途中でやめたい場合は「キャンセル」と送信してください。</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="info-box">
+    <strong>💡 ポイント：</strong>　会員登録後はLINEメニューが変わり、「マイページ」「写真提出」「証書ダウンロード」「審査結果確認」「支払い・更新」が利用できるようになります。
+  </div>
+
+  <hr class="divider">
+
+  <!-- PART 2: ゴールド検定 -->
+  <div class="section-title">
+    <div class="section-title-icon gold">🥇</div>
+    <div>
+      <h2>PART 2：ゴールド検定 写真提出（無料テスト中）</h2>
+      <p>5枚の口腔内写真をアップロードして審査を受けます</p>
+    </div>
+  </div>
+
+  <div class="gold-box">
+    <strong>🎁 現在ゴールド検定テスト中につき無料で受けられます！</strong><br>
+    5枚の口腔内写真を提出するだけで、専門の審査員がフィードバックします。この機会にぜひご活用ください。
+  </div>
+
+  <div class="steps gold-steps">
+
+    <div class="step">
+      <div class="step-num gold-num">1</div>
+      <div class="step-card">
+        <div class="tag gold-tag">ページを開く</div>
+        <h3>ゴールド検定の写真提出ページへアクセスする</h3>
+        <p>LINEメニューの「<strong>写真提出</strong>」をタップ、または下記URLから直接アクセスできます。</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num gold-num">2</div>
+      <div class="step-card">
+        <div class="tag gold-tag">5枚法</div>
+        <h3>5つの位置で口腔内写真を撮影・アップロードする</h3>
+        <p>各枠をタップしてカメラで撮影、またはアルバムから選択します。アップロード後は反転・回転・拡大縮小・トリミング・差替えも可能です。</p>
+        <div class="photo-layout" style="margin-top:14px;">
+          <div></div>
+          <div class="photo-slot"><div class="emoji">📷</div>1. 上顎</div>
+          <div></div>
+          <div class="photo-slot"><div class="emoji">📷</div>2. 右側面</div>
+          <div class="photo-slot"><div class="emoji">📷</div>3. 正面</div>
+          <div class="photo-slot"><div class="emoji">📷</div>4. 左側面</div>
+          <div></div>
+          <div class="photo-slot"><div class="emoji">📷</div>5. 下顎</div>
+          <div></div>
+        </div>
+        <p style="font-size:11px;color:#888;margin-top:10px;text-align:center;">撮影順序：上顎 → 右側面 → 正面 → 左側面 → 下顎</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num gold-num">3</div>
+      <div class="step-card">
+        <div class="tag gold-tag">提出</div>
+        <h3>5枚揃ったら「5枚を提出する」をタップ</h3>
+        <p>5枚すべてアップロードされると提出ボタンが有効になります。確認ダイアログで「<strong>送信する</strong>」をタップしてください。</p>
+        <p style="margin-top:8px; font-size:12px; color:#c9912a; font-weight:700;">⚠️ 送信中は画面を閉じないでください</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num gold-num">4</div>
+      <div class="step-card">
+        <div class="tag gold-tag">完了 ✅</div>
+        <h3>提出完了 → 受付IDを確認する</h3>
+        <p>「提出が完了しました」のメッセージと<strong>受付ID</strong>が表示されます。<br><strong>3営業日以内</strong>に審査結果をLINEでお知らせします。</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="link-box" style="display:flex; align-items:center; gap:20px; text-align:left; padding:20px 24px;">
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=110x110&color=ffffff&bgcolor=1a8a85&data=https://liff.line.me/2009879802-g6qn42iU"
+         alt="QRコード" style="width:110px;height:110px;border-radius:10px;flex-shrink:0;background:white;padding:4px;">
+    <div>
+      <h4 style="font-size:14px; margin-bottom:6px;">📷 ゴールド検定 写真提出ページ</h4>
+      <a href="https://liff.line.me/2009879802-g6qn42iU" style="color:#b8f0ee;font-size:12px;word-break:break-all;text-decoration:none;">https://liff.line.me/2009879802-g6qn42iU</a>
+      <p style="font-size:11px; opacity:0.7; margin-top:8px;">QRコードまたはURLから<br>LINEアプリ内で開いてください</p>
+    </div>
+  </div>
+
+  <div class="gold-box" style="margin-top:8px;">
+    <strong>📋 審査後は：</strong>　LINEで審査結果が届きます。「審査結果確認」メニューからも確認できます。証書はLINEメニューの「証書ダウンロード」からPDFで取得可能です。
+  </div>
+
+</div>
+
+<footer>
+  © JIPA 日本口腔内写真協会　|　jipa.dental
+</footer>
+
+</body>
+</html>
